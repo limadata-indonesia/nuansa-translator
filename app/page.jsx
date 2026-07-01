@@ -81,6 +81,17 @@ export default function Home() {
         </div>
       </div></div></header>
 
+      {/* CLIENTS MARQUEE */}
+      <section className="logos" id="clients" aria-label="Klien kami">
+        <p className="logos__label">Dipercaya perusahaan terkemuka sejak 2007</p>
+        <div className="logos__marquee">
+          <div className="logos__track">
+            {CLIENTS.map((c) => <span key={c} className="logos__item">{c}</span>)}
+            {CLIENTS.map((c) => <span key={c + "-dup"} className="logos__item" aria-hidden="true">{c}</span>)}
+          </div>
+        </div>
+      </section>
+
       {/* STATS */}
       <section className="stats" id="about"><div className="wrap"><div className="stats__in">
         <h2>Mitra Tepercaya Sejak 2007</h2>
@@ -89,14 +100,6 @@ export default function Home() {
         <div className="stat"><b>100<i>%</i></b><strong>Kerahasiaan</strong><p>Setiap dokumen ditangani dengan kerahasiaan penuh.</p></div>
       </div></div></section>
 
-      {/* CLIENTS */}
-      <section className="clients" id="clients"><div className="wrap">
-        <div className="sec-head"><span className="pill pill--light">Klien Kami</span><h2>Dipercaya Perusahaan Terkemuka</h2><p>Dari perusahaan multinasional dan kantor hukum hingga instansi pemerintah — berbagai organisasi telah mempercayai Nuansa Translator sejak 2007.</p></div>
-        <div className="tags client-tags">
-          {CLIENTS.map((c) => <span key={c}>{c}</span>)}
-          <span className="more">…dan masih banyak lagi</span>
-        </div>
-      </div></section>
 
       {/* PRICE CALCULATOR */}
       <PriceCalculator />
