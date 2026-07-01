@@ -273,6 +273,16 @@ a { color: inherit; text-decoration: none; }
 .foot__logo { display: flex; align-items: center; gap: 9px; font-weight: 800; font-size: 1.1rem; margin-bottom: 14px; }
 .foot__logo .mark { width: 26px; height: 26px; border-radius: 7px; background: var(--lime); color: var(--green); display: inline-flex; align-items: center; justify-content: center; }
 .foot p.blurb { color: var(--muted-d); font-size: 0.85rem; line-height: 1.6; max-width: 34ch; }
+.foot__contact { list-style: none; margin: 20px 0 0; padding: 0; display: grid; gap: 12px; max-width: 34ch; }
+.foot__contact li { display: flex; gap: 10px; align-items: flex-start; font-size: 0.88rem; line-height: 1.5; color: var(--muted-d); }
+.foot__contact li span[aria-hidden] { flex: none; font-size: 0.9rem; line-height: 1.5; opacity: 0.9; }
+.foot__contact a { color: var(--muted-d); }
+.foot__contact a:hover { color: #fff; }
+
+/* floating WhatsApp button */
+.wa-float { position: fixed; right: 22px; bottom: 22px; z-index: 60; width: 56px; height: 56px; border-radius: 50%; background: #25d366; color: #fff; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 10px 26px rgba(37,211,102,0.45); transition: transform .18s ease, box-shadow .18s ease; }
+.wa-float:hover { transform: translateY(-2px) scale(1.05); box-shadow: 0 14px 32px rgba(37,211,102,0.55); }
+@media (max-width: 640px){ .wa-float { right: 16px; bottom: 16px; width: 52px; height: 52px; } }
 .foot__col h4 { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 16px; }
 .foot__col a { display: block; font-size: 0.88rem; color: var(--muted-d); margin-bottom: 10px; }
 .foot__col a:hover { color: #fff; }

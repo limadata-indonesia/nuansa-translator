@@ -1,6 +1,7 @@
 import PriceCalculator from "@/components/PriceCalculator";
 import Logo from "@/components/Logo";
 import Nav from "@/components/Nav";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 const SERVICES = [
   { n: "01", title: "Terjemahan Dokumen", desc: "Kontrak, laporan, PDF, dan dokumen teknis, diperiksa menyeluruh dari awal hingga akhir." },
@@ -183,6 +184,24 @@ export default function Home() {
           <div>
             <div className="foot__logo"><Logo light /></div>
             <p className="blurb">Jasa penerjemah &amp; interpreter profesional untuk bisnis — akurat, alami, dan sesuai konteks budaya.</p>
+            <ul className="foot__contact">
+              <li>
+                <span aria-hidden="true">📍</span>
+                <span>JL. Raya Puspiptek, Paradise Serpong City, Kawasan Adventures, Carara J38 No. 38, Tangerang Selatan, Banten — Indonesia</span>
+              </li>
+              <li>
+                <span aria-hidden="true">📞</span>
+                <a href="tel:+622175675048">021 7567 5048</a>
+              </li>
+              <li>
+                <span aria-hidden="true">💬</span>
+                <a href="https://wa.me/628158738349" target="_blank" rel="noopener noreferrer">+62 815-8738-349</a>
+              </li>
+              <li>
+                <span aria-hidden="true">✉️</span>
+                <a href="mailto:nuansa_translator@yahoo.com">nuansa_translator@yahoo.com</a>
+              </li>
+            </ul>
           </div>
           <div className="foot__col"><h4>Perusahaan</h4><a href="#about">Tentang</a><a href="#services">Layanan</a><a href="#clients">Klien</a><a href="#contact">Kontak</a></div>
           <div className="foot__col"><h4>Layanan</h4><a href="#services">Terjemahan Dokumen</a><a href="#services">Lokalisasi</a><a href="#services">Tersumpah</a><a href="#services">Interpreter</a></div>
@@ -192,6 +211,8 @@ export default function Home() {
         </div>
         <div className="foot__bar"><span>© 2026 Nuansa Translator. Seluruh hak cipta dilindungi.</span><span>Privasi · Ketentuan</span></div>
       </div></footer>
+
+      <FloatingWhatsApp />
     </>
   );
 }
