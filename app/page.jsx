@@ -110,7 +110,7 @@ export default function Home() {
           <span className="pill pill--dark">Proses Kami</span>
           <h2>Cara <span className="accent">Kerjanya</span></h2>
           <p className="intro">Menembus pasar global itu mudah. Kirim dokumen Anda, biarkan penerjemah kami bekerja, dan terima hasil terjemahan siap pakai.</p>
-          <div className="process__photo" />
+          <div className="process__photo"><img src="/process-signing.jpg" alt="Penandatanganan dokumen terjemahan tersumpah" /></div>
         </div>
         <div>
           <div className="steps">
