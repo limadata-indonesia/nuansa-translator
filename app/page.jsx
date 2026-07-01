@@ -65,7 +65,7 @@ export default function Home() {
       <header className="hero"><div className="wrap"><div className="hero__grid">
         <div>
           <span className="pill pill--dark">Penerjemah Profesional</span>
-          <h1>Penerjemah <span className="accent">Resmi</span> &amp; Tersumpah<br />untuk Bisnis Anda</h1>
+          <h1>Jasa Penerjemah &amp;<br />Interpreter <span className="accent">Profesional</span></h1>
           <p className="lead">Mitra penerjemah profesional untuk bisnis Anda — hasil terjemahan yang akurat, alami, dan sesuai konteks budaya, dikerjakan oleh penerjemah bersertifikat.</p>
           <div className="hero__cta">
             <a href="#estimate" className="btn btn--lime">Kalkulator Harga</a>
@@ -76,7 +76,7 @@ export default function Home() {
           </div>
         </div>
         <div className="hero__media">
-          <div className="photo" />
+          <div className="photo"><img src="/hero-globe.jpg" alt="Globe dunia — jasa penerjemah untuk berbagai bahasa" /></div>
           <div className="hero__badge"><b>85<i>+</i></b><p>Perusahaan Dilayani</p><div className="stars">★★★★★</div></div>
         </div>
       </div></div></header>
