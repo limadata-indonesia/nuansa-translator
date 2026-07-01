@@ -90,8 +90,12 @@ a { color: inherit; text-decoration: none; }
 .avatars span:first-child { margin-left: 0; }
 .hero__joined small { font-size: 0.82rem; color: var(--muted-d); }
 .hero__media { position: relative; }
-.hero__media .photo { border-radius: 20px; aspect-ratio: 4/3.4; background: linear-gradient(150deg, #3a6b45, #12331f); overflow: hidden; }
+.hero__media .photo { position: relative; border-radius: 20px; aspect-ratio: 4/3.4; background: linear-gradient(150deg, #3a6b45, #12331f); overflow: hidden; }
 .hero__media .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero__media .photo::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(150deg, rgba(20,51,31,0.62) 0%, rgba(20,51,31,0.12) 42%, rgba(163,230,53,0.10) 78%, rgba(163,230,53,0.26) 100%),
+    linear-gradient(0deg, rgba(14,38,23,0.55), rgba(14,38,23,0) 45%); }
 .hero__badge { position: absolute; right: 18px; bottom: 18px; background: #fff; color: var(--ink); border-radius: 14px; padding: 16px 20px; box-shadow: 0 12px 30px rgba(0,0,0,0.25); }
 .hero__badge b { font-size: 1.6rem; font-weight: 800; } .hero__badge b i { color: var(--lime); font-style: normal; }
 .hero__badge p { font-size: 0.78rem; color: var(--muted); margin: 2px 0 4px; }
