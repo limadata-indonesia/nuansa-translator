@@ -1,0 +1,18 @@
+import { Plus_Jakarta_Sans } from "next/font/google";
+import "./globals.css";
+
+const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], display: "swap", weight: ["400", "500", "600", "700", "800"], variable: "--font-jakarta" });
+
+export const metadata = {
+  title: "Nuansa Translator — Jasa Penerjemah & Interpreter Profesional",
+  description:
+    "Nuansa Translator menyediakan jasa penerjemah & interpreter profesional dari Bahasa Indonesia ke 16 bahasa — akurat, alami, dan sesuai konteks budaya. Berdiri sejak 2007.",
+};
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="id" className={jakarta.variable}>
+      <body>{children}</body>
+    </html>
+  );
+}
