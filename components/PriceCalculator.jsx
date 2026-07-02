@@ -1,7 +1,8 @@
 "use client";
 import { useState } from "react";
 
-// Tarif per halaman hasil (IDR) dari profil Nuansa Translator. Sumber: Bahasa Indonesia.
+// Tarif per halaman hasil (IDR) dari profil Nuansa Translator.
+// Tarif berlaku sama untuk kedua arah (Bahasa Indonesia ⇄ bahasa terkait).
 const LANGS = [
   { name: "Inggris", unsworn: 40000, sworn: 75000 },
   { name: "Arab", unsworn: 200000, sworn: 250000 },
@@ -33,12 +34,16 @@ const fmt = (n) => "Rp " + Math.round(n).toLocaleString("id-ID");
 
 export default function PriceCalculator() {
   const [langIdx, setLangIdx] = useState(0);
+  const [dir, setDir] = useState("id2x"); // id2x: dari Bhs Indonesia · x2id: ke Bhs Indonesia
   const [type, setType] = useState("unsworn");
   const [pages, setPages] = useState(5);
   const [fmtIdx, setFmtIdx] = useState(1);
   const [urgent, setUrgent] = useState(false);
 
   const lang = LANGS[langIdx];
+  const pairLabel = dir === "id2x"
+    ? `Bahasa Indonesia → ${lang.name}`
+    : `${lang.name} → Bahasa Indonesia`;
   const swornAvail = lang.sworn != null;
   const effType = type === "sworn" && swornAvail ? "sworn" : "unsworn";
   const perPage = effType === "sworn" ? lang.sworn : lang.unsworn;
@@ -58,10 +63,19 @@ export default function PriceCalculator() {
       <div className="calc__grid">
         <div className="calc__form">
           <label className="calc__field">
-            <span>Bahasa tujuan (dari Bahasa Indonesia)</span>
+            <span>Arah terjemahan</span>
+            <select value={dir} onChange={(e) => setDir(e.target.value)}>
+              <option value="id2x">Dari Bahasa Indonesia</option>
+              <option value="x2id">Ke Bahasa Indonesia</option>
+            </select>
+          </label>
+
+          <label className="calc__field">
+            <span>{dir === "id2x" ? "Bahasa tujuan" : "Bahasa sumber"}</span>
             <select value={langIdx} onChange={(e) => setLangIdx(+e.target.value)}>
               {LANGS.map((l, i) => <option key={l.name} value={i}>{l.name}</option>)}
             </select>
+            <small className="calc__note">Tarif sama untuk kedua arah (mis. Indonesia ⇄ {lang.name}).</small>
           </label>
 
           <div className="calc__field">
@@ -95,6 +109,7 @@ export default function PriceCalculator() {
           <span className="calc__rlabel">Perkiraan total</span>
           <div className="calc__total">{fmt(total)}</div>
           <ul className="calc__break">
+            <li><span>Pasangan bahasa</span><b>{pairLabel}</b></li>
             <li><span>Tarif per halaman hasil</span><b>{fmt(perPage)}</b></li>
             <li><span>Perkiraan halaman hasil</span><b>{resultPages}</b></li>
             <li><span>Layanan</span><b>{effType === "sworn" ? "Tersumpah" : "Reguler"}</b></li>
