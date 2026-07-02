@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Logo from "@/components/Logo";
 import { SERVICES, INDUSTRIES, LANGUAGES } from "@/lib/data";
 
@@ -15,6 +15,16 @@ const LINKS = [
 export default function Nav() {
   const [open, setOpen] = useState(false); // mobile drawer
   const [mega, setMega] = useState(false); // desktop mega menu
+  const megaTimer = useRef(null);
+
+  const openMega = () => {
+    if (megaTimer.current) clearTimeout(megaTimer.current);
+    setMega(true);
+  };
+  const closeMega = () => {
+    if (megaTimer.current) clearTimeout(megaTimer.current);
+    megaTimer.current = setTimeout(() => setMega(false), 180);
+  };
 
   return (
     <nav className={`nav${open ? " nav--open" : ""}`}>
@@ -29,8 +39,8 @@ export default function Nav() {
                 <div
                   key={l.label}
                   className={`nav__has-mega${mega ? " is-open" : ""}`}
-                  onMouseEnter={() => setMega(true)}
-                  onMouseLeave={() => setMega(false)}
+                  onMouseEnter={openMega}
+                  onMouseLeave={closeMega}
                 >
                   <a href={l.href} className="nav__mega-trigger" aria-expanded={mega} aria-haspopup="true">
                     {l.label}
