@@ -3,7 +3,7 @@ import Logo from "@/components/Logo";
 import Nav from "@/components/Nav";
 import HeroVideo from "@/components/HeroVideo";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
-import { SERVICES, INDUSTRIES, LANGUAGES, CLIENTS } from "@/lib/data";
+import { SERVICES, CLIENTS } from "@/lib/data";
 const TESTIMONIALS = [
   { quote: "Nuansa menangani dokumen tersumpah kami dengan sempurna dan selesai lebih cepat dari tenggat. Sangat profesional.", name: "Andini Pratama", role: "Manajer Legal & Kepatuhan" },
   { quote: "Kami butuh terjemahan tersumpah untuk berkas pengadilan — akurat, dilegalisasi dengan benar, dan tanpa repot.", name: "Budi Santoso", role: "Pengacara Korporat" },
@@ -110,12 +110,6 @@ export default function Home() {
           {SERVICES.map((s) => (
             <div className="svc" key={s.n}><div className="n">{s.n}</div><h3>{s.title}</h3><p>{s.desc}</p></div>
           ))}
-        </div>
-        <div className="sgroup"><h3>Berdasarkan Industri<span>Keahlian sesuai bidang</span></h3>
-          <div className="tags">{INDUSTRIES.map((i) => <a href="#contact" key={i}>{i}</a>)}</div>
-        </div>
-        <div className="sgroup"><h3>Berdasarkan Bahasa<span>Dari Bahasa Indonesia ke 16 bahasa</span></h3>
-          <div className="tags">{LANGUAGES.map((l) => <a href="#contact" key={l}>{l}</a>)}</div>
         </div>
       </div></section>
 
