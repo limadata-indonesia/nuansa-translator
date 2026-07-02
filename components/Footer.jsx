@@ -26,7 +26,7 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-        <div className="foot__col"><h4>Perusahaan</h4><a href="/#about">Tentang</a><a href="/#services">Layanan</a><a href="/#clients">Klien</a><a href="/#contact">Kontak</a></div>
+        <div className="foot__col"><h4>Perusahaan</h4><a href="/#about">Tentang</a><a href="/#services">Layanan</a><a href="/#clients">Klien</a><a href="/kontak">Kontak</a></div>
         <div className="foot__col"><h4>Layanan</h4><a href="/#services">Terjemahan Dokumen</a><a href="/#services">Lokalisasi</a><a href="/#services">Tersumpah</a><a href="/jasa-interpreter">Interpreter</a></div>
         <div className="foot__col"><h4>Langganan</h4><p className="blurb">Dapatkan tips bahasa &amp; lokalisasi di email Anda.</p>
           <form className="foot__sub"><input type="email" placeholder="Masukkan email Anda" aria-label="Email" /><button type="button" className="btn btn--lime">Langganan</button></form>

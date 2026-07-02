@@ -9,7 +9,7 @@ const LINKS = [
   { href: "/#about", label: "Tentang" },
   { href: "/#services", label: "Layanan", mega: true },
   { href: "/#estimate", label: "Estimasi" },
-  { href: "/#contact", label: "Kontak" },
+  { href: "/kontak", label: "Kontak" },
 ];
 
 export default function Nav() {
@@ -83,7 +83,7 @@ export default function Nav() {
               )
             )}
           </div>
-          <a href="/#contact" className="btn btn--lime nav__cta">
+          <a href="/kontak" className="btn btn--lime nav__cta">
             Hubungi Kami
           </a>
           <button
@@ -119,8 +119,8 @@ export default function Nav() {
           </div>
         </div>
         <a href="/#estimate" onClick={() => setOpen(false)}>Estimasi</a>
-        <a href="/#contact" onClick={() => setOpen(false)}>Kontak</a>
-        <a href="/#contact" className="btn btn--lime nav__drawer-cta" onClick={() => setOpen(false)}>
+        <a href="/kontak" onClick={() => setOpen(false)}>Kontak</a>
+        <a href="/kontak" className="btn btn--lime nav__drawer-cta" onClick={() => setOpen(false)}>
           Hubungi Kami
         </a>
       </div>
