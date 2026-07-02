@@ -1,6 +1,7 @@
 import PriceCalculator from "@/components/PriceCalculator";
 import Logo from "@/components/Logo";
 import Nav from "@/components/Nav";
+import HeroVideo from "@/components/HeroVideo";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { SERVICES, INDUSTRIES, LANGUAGES, CLIENTS } from "@/lib/data";
 const TESTIMONIALS = [
@@ -43,7 +44,10 @@ export default function Home() {
       <Nav />
 
       {/* HERO */}
-      <header className="hero"><div className="wrap"><div className="hero__grid">
+      <header className="hero">
+        <HeroVideo className="hero__video" />
+        <div className="hero__overlay" aria-hidden="true" />
+        <div className="wrap"><div className="hero__grid">
         <div>
           <span className="pill pill--dark">Penerjemah Profesional</span>
           <h1>Jasa Penerjemah &amp;<br />Interpreter <span className="accent">Profesional</span></h1>
@@ -55,10 +59,6 @@ export default function Home() {
               <small>Dipercaya 85+ perusahaan sejak 2007</small>
             </div>
           </div>
-        </div>
-        <div className="hero__media">
-          <div className="photo"><img src="/hero-globe.jpg" alt="Globe dunia — jasa penerjemah untuk berbagai bahasa" /></div>
-          <div className="hero__badge"><b>85<i>+</i></b><p>Perusahaan Dilayani</p><div className="stars">★★★★★</div></div>
         </div>
       </div></div></header>
 
