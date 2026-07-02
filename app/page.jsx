@@ -1,7 +1,7 @@
 import PriceCalculator from "@/components/PriceCalculator";
-import Logo from "@/components/Logo";
 import Nav from "@/components/Nav";
 import HeroVideo from "@/components/HeroVideo";
+import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { SERVICES, CLIENTS } from "@/lib/data";
 const TESTIMONIALS = [
@@ -107,9 +107,12 @@ export default function Home() {
       <section className="services" id="services"><div className="wrap">
         <div className="sec-head"><span className="pill pill--light">Layanan Kami</span><h2>Semua Layanan Bahasa dalam Satu Tempat</h2></div>
         <div className="svc-cards">
-          {SERVICES.map((s) => (
-            <div className="svc" key={s.n}><div className="n">{s.n}</div><h3>{s.title}</h3><p>{s.desc}</p></div>
-          ))}
+          {SERVICES.map((s) => {
+            const inner = (<><div className="n">{s.n}</div><h3>{s.title}</h3><p>{s.desc}</p></>);
+            return s.href
+              ? <a className="svc svc--link" key={s.n} href={s.href}>{inner}</a>
+              : <div className="svc" key={s.n}>{inner}</div>;
+          })}
         </div>
       </div></section>
 
@@ -153,38 +156,7 @@ export default function Home() {
       </div></div></section>
 
       {/* FOOTER */}
-      <footer className="foot" id="contact"><div className="wrap">
-        <div className="foot__top">
-          <div>
-            <div className="foot__logo"><Logo light /></div>
-            <p className="blurb">Jasa penerjemah &amp; interpreter profesional untuk bisnis — akurat, alami, dan sesuai konteks budaya.</p>
-            <ul className="foot__contact">
-              <li>
-                <span aria-hidden="true">📍</span>
-                <span>JL. Raya Puspiptek, Paradise Serpong City, Kawasan Adventures, Carara J38 No. 38, Tangerang Selatan, Banten — Indonesia</span>
-              </li>
-              <li>
-                <span aria-hidden="true">📞</span>
-                <a href="tel:+622175675048">021 7567 5048</a>
-              </li>
-              <li>
-                <span aria-hidden="true">💬</span>
-                <a href="https://wa.me/628158738349" target="_blank" rel="noopener noreferrer">+62 815-8738-349</a>
-              </li>
-              <li>
-                <span aria-hidden="true">✉️</span>
-                <a href="mailto:nuansa_translator@yahoo.com">nuansa_translator@yahoo.com</a>
-              </li>
-            </ul>
-          </div>
-          <div className="foot__col"><h4>Perusahaan</h4><a href="#about">Tentang</a><a href="#services">Layanan</a><a href="#clients">Klien</a><a href="#contact">Kontak</a></div>
-          <div className="foot__col"><h4>Layanan</h4><a href="#services">Terjemahan Dokumen</a><a href="#services">Lokalisasi</a><a href="#services">Tersumpah</a><a href="#services">Interpreter</a></div>
-          <div className="foot__col"><h4>Langganan</h4><p className="blurb">Dapatkan tips bahasa &amp; lokalisasi di email Anda.</p>
-            <form className="foot__sub"><input type="email" placeholder="Masukkan email Anda" aria-label="Email" /><button type="button" className="btn btn--lime">Langganan</button></form>
-          </div>
-        </div>
-        <div className="foot__bar"><span>© 2026 Nuansa Translator. Seluruh hak cipta dilindungi.</span><span>Privasi · Ketentuan</span></div>
-      </div></footer>
+      <Footer />
 
       <FloatingWhatsApp />
     </>

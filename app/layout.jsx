@@ -6,6 +6,8 @@ const inter = Inter({ subsets: ["latin"], display: "swap", weight: ["400", "500"
 const instrument = Instrument_Serif({ subsets: ["latin"], display: "swap", weight: "400", style: "italic", variable: "--font-instrument" });
 
 export const metadata = {
+  // TODO: set to the real production domain when live.
+  metadataBase: new URL("https://nuansatranslator.co.id"),
   title: "Nuansa Translator — Jasa Penerjemah & Interpreter Profesional",
   description:
     "Nuansa Translator menyediakan jasa penerjemah & interpreter profesional dari Bahasa Indonesia ke 16 bahasa — akurat, alami, dan sesuai konteks budaya. Berdiri sejak 2007.",

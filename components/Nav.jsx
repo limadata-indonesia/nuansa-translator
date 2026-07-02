@@ -54,7 +54,7 @@ export default function Nav() {
                       <h4 className="mega__title">Layanan</h4>
                       <ul>
                         {SERVICES.map((s) => (
-                          <li key={s.title}><a href="#services">{s.title}</a></li>
+                          <li key={s.title}><a href={s.href || "/#services"}>{s.title}</a></li>
                         ))}
                       </ul>
                     </div>
