@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import Script from "next/script";
+import WhatsAppTracker from "@/components/WhatsAppTracker";
 import "./globals.css";
 
 // Google Analytics 4 — loaded only in production so local dev doesn't pollute analytics.
@@ -59,6 +60,7 @@ export default function RootLayout({ children }) {
     <html lang="id" className={visual.variable}>
       <body>
         {children}
+        <WhatsAppTracker />
         {GA_ID ? (
           <>
             <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
