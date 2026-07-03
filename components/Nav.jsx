@@ -2,11 +2,11 @@
 
 import { useState, useRef } from "react";
 import Logo from "@/components/Logo";
-import { SERVICES, INDUSTRIES, LANGUAGES } from "@/lib/data";
+import { SERVICES, INDUSTRIES, LANGUAGES, industryHref } from "@/lib/data";
 
 const LINKS = [
   { href: "/", label: "Beranda" },
-  { href: "/#about", label: "Tentang" },
+  { href: "/tentang", label: "Tentang" },
   { href: "/#services", label: "Layanan", mega: true },
   { href: "/#estimate", label: "Estimasi" },
   { href: "/kontak", label: "Kontak" },
@@ -62,7 +62,7 @@ export default function Nav() {
                       <h4 className="mega__title">Berdasarkan Industri</h4>
                       <ul className="mega__grid">
                         {INDUSTRIES.map((i) => (
-                          <li key={i}><a href="/#services">{i}</a></li>
+                          <li key={i}><a href={industryHref(i)}>{i}</a></li>
                         ))}
                       </ul>
                     </div>
@@ -102,13 +102,13 @@ export default function Nav() {
 
       <div className="nav__drawer">
         <a href="/" onClick={() => setOpen(false)}>Beranda</a>
-        <a href="/#about" onClick={() => setOpen(false)}>Tentang</a>
+        <a href="/tentang" onClick={() => setOpen(false)}>Tentang</a>
         <a href="/#services" onClick={() => setOpen(false)}>Layanan</a>
         <div className="nav__drawer-sub">
           <span className="nav__drawer-label">Industri</span>
           <div className="nav__drawer-tags">
             {INDUSTRIES.map((i) => (
-              <a key={i} href="/#services" onClick={() => setOpen(false)}>{i}</a>
+              <a key={i} href={industryHref(i)} onClick={() => setOpen(false)}>{i}</a>
             ))}
           </div>
           <span className="nav__drawer-label">Bahasa</span>

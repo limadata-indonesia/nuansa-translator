@@ -1,9 +1,13 @@
-import { Plus_Jakarta_Sans, Inter, Instrument_Serif } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], display: "swap", weight: ["400", "500", "600", "700", "800"], variable: "--font-jakarta" });
-const inter = Inter({ subsets: ["latin"], display: "swap", weight: ["400", "500", "600", "700", "800"], variable: "--font-inter" });
-const instrument = Instrument_Serif({ subsets: ["latin"], display: "swap", weight: "400", style: "italic", variable: "--font-instrument" });
+// WF Visual Sans — variable font (wght 100–900), self-hosted. Powers the whole site.
+const visual = localFont({
+  src: "./fonts/WFVisualSansVF.woff2",
+  display: "swap",
+  weight: "100 900",
+  variable: "--font-visual",
+});
 
 export const metadata = {
   // TODO: set to the real production domain when live.
@@ -36,7 +40,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="id" className={`${jakarta.variable} ${inter.variable} ${instrument.variable}`}>
+    <html lang="id" className={visual.variable}>
       <body>{children}</body>
     </html>
   );

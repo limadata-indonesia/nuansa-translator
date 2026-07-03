@@ -1,9 +1,16 @@
 import { SITE_URL } from "@/lib/site";
 import { allServiceSlugs } from "@/lib/services";
+import { allIndustrySlugs } from "@/lib/industries";
 
 export default function sitemap() {
   const now = new Date();
-  const routes = ["", "/kontak", ...allServiceSlugs().map((s) => `/${s}`)];
+  const routes = [
+    "",
+    "/tentang",
+    "/kontak",
+    ...allServiceSlugs().map((s) => `/${s}`),
+    ...allIndustrySlugs().map((s) => `/${s}`),
+  ];
   return routes.map((path) => ({
     url: `${SITE_URL}${path}`,
     lastModified: now,
