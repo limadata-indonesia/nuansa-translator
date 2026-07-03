@@ -10,7 +10,6 @@ const visual = localFont({
 });
 
 export const metadata = {
-  // TODO: set to the real production domain when live.
   metadataBase: new URL("https://nuansatranslator.co.id"),
   title: {
     default: "Jasa Penerjemah Profesional & Tersumpah Jakarta | Nuansa Translator",
