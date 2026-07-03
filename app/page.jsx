@@ -11,9 +11,9 @@ const SVC_IMG = ["/services/dokumen.jpg", "/services/tersumpah.jpg", "/services/
 const SERVICES_IMG = SERVICES.map((s, i) => ({ ...s, img: SVC_IMG[i] }));
 
 const HERO_CARDS = [
-  { title: "Terjemahan Tersumpah", desc: "Bersertifikat SK Kemenkumham, diakui instansi & kedutaan.", href: "/terjemahan-tersumpah", img: "/services/tersumpah.jpg" },
+  { title: "Sewa Alat Interpreter", desc: "Booth, headset, tour guide, dan teknisi untuk konferensi simultan.", href: "/sewa-alat-interpreter", img: "/services/alat.jpg" },
   { title: "Jasa Interpreter", tag: "POPULER", desc: "Simultan, konsekutif, hingga daring dalam 16 bahasa.", href: "/jasa-interpreter", img: "/services/interpreter.jpg" },
-  { title: "Lokalisasi & Web", desc: "Situs web, aplikasi, dan e-learning yang terasa native.", href: "/terjemahan-website", img: "/services/website.jpg" },
+  { title: "Juru Bahasa Isyarat", desc: "SIBI & BISINDO untuk acara, siaran, hukum, medis, dan pendidikan.", href: "/juru-bahasa-isyarat", img: "/services/isyarat.jpg" },
 ];
 
 const FAQS = [
