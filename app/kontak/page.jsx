@@ -6,9 +6,9 @@ import { SITE_URL, ORG_ID, orgNode } from "@/lib/site";
 import { MapPin, Phone, MessageCircle, Mail, Clock, Car } from "lucide-react";
 
 export const metadata = {
-  title: "Hubungi Kami — Kontak Nuansa Translator Jakarta",
+  title: "Hubungi Kami — Kontak Jakarta",
   description:
-    "Hubungi Nuansa Translator untuk jasa penerjemah & interpreter di Jakarta & Jabodetabek. Telepon, WhatsApp, email, alamat kantor, dan jam operasional. Konsultasi gratis.",
+    "Hubungi Nuansa Translator untuk jasa penerjemah & interpreter di Jakarta & Jabodetabek — telepon, WhatsApp, email, alamat kantor, dan jam operasional.",
   keywords: [
     "kontak Nuansa Translator",
     "hubungi jasa penerjemah",

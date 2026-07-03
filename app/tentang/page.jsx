@@ -7,9 +7,9 @@ import {
 } from "lucide-react";
 
 export const metadata = {
-  title: "Tentang Kami — Perjalanan Nuansa Translator Sejak 2007",
+  title: "Tentang Kami — Sejak 2007",
   description:
-    "Kisah Nuansa Translator: kantor penerjemah & interpreter di Jakarta & Jabodetabek sejak 2007. Perjalanan kami dari terjemahan dokumen hingga melayani 85+ perusahaan dalam 16 bahasa.",
+    "Tentang Nuansa Translator — kantor penerjemah & interpreter bersertifikat di Jakarta & Jabodetabek sejak 2007, melayani 85+ perusahaan dalam 16 bahasa.",
   keywords: [
     "tentang Nuansa Translator",
     "profil perusahaan penerjemah",

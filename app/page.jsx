@@ -79,7 +79,7 @@ const JSON_LD = {
       "@type": "WebPage",
       "@id": `${SITE_URL}/#webpage`,
       url: SITE_URL,
-      name: "Jasa Penerjemah Profesional & Tersumpah Jakarta | Nuansa Translator",
+      name: "Jasa Penerjemah Profesional Jakarta | Nuansa Translator",
       inLanguage: "id-ID",
       isPartOf: { "@id": `${SITE_URL}/#website` },
       about: { "@id": ORG_ID },

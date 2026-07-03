@@ -18,11 +18,11 @@ const visual = localFont({
 export const metadata = {
   metadataBase: new URL("https://nuansatranslator.co.id"),
   title: {
-    default: "Jasa Penerjemah Profesional & Tersumpah Jakarta | Nuansa Translator",
+    default: "Jasa Penerjemah Profesional Jakarta | Nuansa Translator",
     template: "%s | Nuansa Translator",
   },
   description:
-    "Jasa penerjemah profesional, tersumpah & interpreter dari Bahasa Indonesia ke 16 bahasa — akurat, alami, dan sesuai konteks budaya. Melayani Jakarta & Jabodetabek sejak 2007. Konsultasi gratis.",
+    "Jasa penerjemah profesional, tersumpah & interpreter dalam 16 bahasa di Jakarta & Jabodetabek — akurat dan sesuai konteks budaya sejak 2007.",
   keywords: [
     "jasa penerjemah",
     "jasa penerjemah Jakarta",
@@ -41,15 +41,15 @@ export const metadata = {
     locale: "id_ID",
     siteName: "Nuansa Translator",
     url: "/",
-    title: "Jasa Penerjemah Profesional & Tersumpah Jakarta | Nuansa Translator",
+    title: "Jasa Penerjemah Profesional Jakarta | Nuansa Translator",
     description:
-      "Jasa penerjemah profesional, tersumpah & interpreter dari Bahasa Indonesia ke 16 bahasa — akurat, alami, dan sesuai konteks budaya. Melayani Jakarta & Jabodetabek sejak 2007.",
+      "Jasa penerjemah profesional, tersumpah & interpreter dalam 16 bahasa di Jakarta & Jabodetabek — akurat dan sesuai konteks budaya sejak 2007.",
     images: [{ url: "/hero-globe.jpg", width: 1200, height: 630, alt: "Nuansa Translator" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jasa Penerjemah Profesional & Tersumpah Jakarta | Nuansa Translator",
-    description: "Jasa penerjemah & interpreter profesional dari Bahasa Indonesia ke 16 bahasa.",
+    title: "Jasa Penerjemah Profesional Jakarta | Nuansa Translator",
+    description: "Jasa penerjemah profesional, tersumpah & interpreter dalam 16 bahasa di Jakarta & Jabodetabek sejak 2007.",
     images: ["/hero-globe.jpg"],
   },
   robots: { index: true, follow: true },
