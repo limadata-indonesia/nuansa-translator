@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 export default function ServicesAccordion({ items }) {
   const [active, setActive] = useState(0);
@@ -9,7 +10,7 @@ export default function ServicesAccordion({ items }) {
     <div className="svcx">
       <div className="svcx__media">
         {items.map((s, i) => (
-          <img key={i} src={s.img} alt={s.title} className={i === active ? "is-on" : ""} loading="lazy" />
+          <Image key={i} src={s.img} alt={s.title} fill sizes="(max-width: 900px) 100vw, 45vw" className={i === active ? "is-on" : ""} />
         ))}
         <div className="svcx__stats" aria-hidden="true">
           <div><b>16</b><span>Bahasa</span></div>

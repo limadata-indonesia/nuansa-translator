@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Nav from "@/components/Nav";
 import TypesAccordion from "@/components/TypesAccordion";
 import RelatedCarousel from "@/components/RelatedCarousel";
@@ -84,7 +85,7 @@ export default function ServiceLanding({ data }) {
       {/* OFFER */}
       <section className="offer"><div className="wrap">
         <div className="svcx">
-          <div className="svcx__media offer__media"><img src={offerImg} alt={data.serviceName} loading="lazy" /></div>
+          <div className="svcx__media offer__media"><Image src={offerImg} alt={data.serviceName} fill sizes="(max-width: 900px) 100vw, 45vw" /></div>
           <div className="svcx__panel">
             <span className="pill pill--light">Jenis Layanan</span>
             <h2>{data.typesTitle}</h2>
@@ -119,7 +120,7 @@ export default function ServiceLanding({ data }) {
             <p>“{data.whyQuote.text}”</p>
             <cite>— {data.whyQuote.cite}</cite>
           </div>
-          <div className="whyx__photo"><img src="/process-signing.jpg" alt="" aria-hidden="true" /></div>
+          <div className="whyx__photo"><Image src="/process-signing.jpg" alt="" fill sizes="(max-width: 900px) 100vw, 30vw" aria-hidden="true" /></div>
         </div>
       </div></section>
 

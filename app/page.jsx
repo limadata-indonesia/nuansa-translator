@@ -1,3 +1,4 @@
+import Image from "next/image";
 import PriceCalculator from "@/components/PriceCalculator";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -59,6 +60,17 @@ const JSON_LD = {
       },
     },
     {
+      "@type": "ItemList",
+      "@id": `${SITE_URL}/#layanan`,
+      name: "Layanan Nuansa Translator",
+      itemListElement: SERVICES.map((s, i) => ({
+        "@type": "SiteNavigationElement",
+        position: i + 1,
+        name: s.title,
+        url: `${SITE_URL}${s.href}`,
+      })),
+    },
+    {
       "@type": "FAQPage",
       "@id": `${SITE_URL}/#faq`,
       mainEntity: FAQS.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
@@ -97,7 +109,7 @@ export default function Home() {
                     <h3>{c.title}{c.tag && <span className="hero2__tag">{c.tag}</span>}</h3>
                     <p>{c.desc}</p>
                   </div>
-                  <div className="hero2__card-img"><img src={c.img} alt="" aria-hidden="true" /></div>
+                  <div className="hero2__card-img"><Image src={c.img} alt="" fill sizes="112px" aria-hidden="true" /></div>
                 </a>
               ))}
             </div>
