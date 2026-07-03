@@ -126,12 +126,13 @@ export default function TentangPage() {
       </div></section>
 
       {/* MILESTONE TIMELINE */}
-      <section className="milestones"><div className="wrap">
-        <div className="sec-head" style={{ textAlign: "left", marginBottom: 44 }}>
+      <section className="milestones"><div className="wrap"><div className="ms__grid">
+        <div className="ms__side" aria-hidden="true" />
+        <div className="ms__main">
+        <div className="ms__head">
           <span className="pill pill--light">Perjalanan Kami</span>
           <h2>Tonggak Perjalanan Nuansa</h2>
         </div>
-
         <div className="tl">
           <span className="tl__dots" aria-hidden="true" />
           {MILESTONES.map((m, i) => {
@@ -153,17 +154,12 @@ export default function TentangPage() {
                   <h3>{m.title}</h3>
                   <p>{m.desc}</p>
                 </div>
-
-                {m.img && (
-                  <div className="tl__photo" aria-hidden="true">
-                    <img src={m.img} alt={m.imgAlt || ""} loading="lazy" />
-                  </div>
-                )}
               </div>
             );
           })}
         </div>
-      </div></section>
+        </div>
+      </div></div></section>
 
       {/* VALUES */}
       <section className="values"><div className="wrap">
