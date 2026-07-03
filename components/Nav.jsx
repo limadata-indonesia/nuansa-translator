@@ -83,7 +83,7 @@ export default function Nav() {
               )
             )}
           </div>
-          <a href="/kontak" className="btn btn--lime nav__cta">
+          <a href="/kontak" className="btn btn--blue nav__cta">
             Hubungi Kami
           </a>
           <button
@@ -120,7 +120,7 @@ export default function Nav() {
         </div>
         <a href="/#estimate" onClick={() => setOpen(false)}>Estimasi</a>
         <a href="/kontak" onClick={() => setOpen(false)}>Kontak</a>
-        <a href="/kontak" className="btn btn--lime nav__drawer-cta" onClick={() => setOpen(false)}>
+        <a href="/kontak" className="btn btn--blue nav__drawer-cta" onClick={() => setOpen(false)}>
           Hubungi Kami
         </a>
       </div>

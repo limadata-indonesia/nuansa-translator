@@ -9,6 +9,15 @@ export const metadata = {
   title: "Hubungi Kami — Kontak Nuansa Translator Jakarta",
   description:
     "Hubungi Nuansa Translator untuk jasa penerjemah & interpreter di Jakarta & Jabodetabek. Telepon, WhatsApp, email, alamat kantor, dan jam operasional. Konsultasi gratis.",
+  keywords: [
+    "kontak Nuansa Translator",
+    "hubungi jasa penerjemah",
+    "alamat penerjemah Jakarta",
+    "nomor WhatsApp penerjemah",
+    "jasa penerjemah Tangerang Selatan",
+    "konsultasi penerjemah gratis",
+    "Nuansa Translator",
+  ],
   alternates: { canonical: "/kontak" },
   openGraph: {
     title: "Hubungi Kami — Nuansa Translator",

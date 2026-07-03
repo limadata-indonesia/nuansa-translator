@@ -18,6 +18,18 @@ export const metadata = {
   },
   description:
     "Nuansa Translator menyediakan jasa penerjemah & interpreter profesional dari Bahasa Indonesia ke 16 bahasa — akurat, alami, dan sesuai konteks budaya. Berdiri sejak 2007.",
+  keywords: [
+    "jasa penerjemah",
+    "jasa penerjemah Jakarta",
+    "jasa penerjemah tersumpah",
+    "jasa interpreter",
+    "penerjemah tersumpah Jakarta",
+    "jasa translator Jakarta",
+    "penerjemah dokumen",
+    "jasa penerjemah Jabodetabek",
+    "penerjemah 16 bahasa",
+    "Nuansa Translator",
+  ],
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",

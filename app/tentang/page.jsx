@@ -10,6 +10,15 @@ export const metadata = {
   title: "Tentang Kami — Perjalanan Nuansa Translator Sejak 2007",
   description:
     "Kisah Nuansa Translator: kantor penerjemah & interpreter di Jakarta & Jabodetabek sejak 2007. Perjalanan kami dari terjemahan dokumen hingga melayani 85+ perusahaan dalam 16 bahasa.",
+  keywords: [
+    "tentang Nuansa Translator",
+    "profil perusahaan penerjemah",
+    "kantor penerjemah Jakarta",
+    "sejarah Nuansa Translator",
+    "jasa penerjemah terpercaya",
+    "penerjemah profesional Jabodetabek",
+    "Nuansa Translator",
+  ],
   alternates: { canonical: "/tentang" },
   openGraph: {
     title: "Tentang Nuansa Translator",
@@ -84,12 +93,16 @@ export default function TentangPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }} />
       <Nav />
 
+      <main className="about">
       {/* PAGE HEADER */}
-      <header className="phead"><div className="wrap">
-        <span className="pill pill--dark"><MapPin size={14} strokeWidth={2.2} /> Jakarta &amp; Jabodetabek</span>
-        <h1>Menerjemahkan Setiap <span className="accent">Nuansa</span> Sejak 2007</h1>
-        <p>Nuansa Translator adalah kantor penerjemah dan interpreter profesional bersertifikat di Jakarta &amp; Jabodetabek. Selama lebih dari sembilan belas tahun, kami membantu perusahaan, firma hukum, dan individu menembus batas bahasa dengan akurat dan tepat konteks.</p>
-      </div></header>
+      <header className="phd"><div className="wrap"><div className="phd__grid">
+        <div className="phd__eyebrow">Tentang</div>
+        <div className="phd__main">
+          <h1>Menerjemahkan Setiap Nuansa Sejak 2007</h1>
+          <p>Nuansa Translator adalah kantor penerjemah dan interpreter profesional bersertifikat di Jakarta &amp; Jabodetabek. Selama lebih dari sembilan belas tahun, kami membantu perusahaan, firma hukum, dan individu menembus batas bahasa dengan akurat dan tepat konteks.</p>
+          <div className="phd__cta"><a href={WA} target="_blank" rel="noopener noreferrer" className="btn btn--blue">Konsultasi Gratis</a></div>
+        </div>
+      </div></div></header>
 
       {/* INTRO STATS */}
       <section className="about-intro"><div className="wrap">
@@ -169,6 +182,7 @@ export default function TentangPage() {
         <p>Punya dokumen untuk diterjemahkan atau butuh interpreter? Konsultasikan kebutuhan Anda hari ini — gratis dan tanpa kewajiban.</p>
         <a href={WA} target="_blank" rel="noopener noreferrer" className="btn btn--lime">Konsultasi Gratis</a>
       </div></div></section>
+      </main>
 
       <Footer />
       <FloatingWhatsApp />

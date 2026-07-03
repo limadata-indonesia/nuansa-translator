@@ -1,38 +1,73 @@
-import Logo from "@/components/Logo";
+const CITIES = [
+  "Jakarta", "Tangerang", "Tangerang Selatan", "Bogor", "Depok", "Bekasi",
+  "Bandung", "Surabaya", "Semarang", "Yogyakarta", "Solo", "Malang",
+  "Medan", "Palembang", "Pekanbaru", "Batam", "Padang", "Bandar Lampung",
+  "Makassar", "Denpasar", "Balikpapan", "Samarinda", "Banjarmasin",
+  "Pontianak", "Manado", "Cirebon",
+];
+
+const SOCIAL = [
+  { label: "Instagram", href: "#" },
+  { label: "Facebook", href: "#" },
+  { label: "TikTok", href: "#" },
+  { label: "YouTube", href: "#" },
+  { label: "WhatsApp", href: "https://wa.me/628158738349" },
+];
 
 export default function Footer() {
   return (
     <footer className="foot" id="contact"><div className="wrap">
-      <div className="foot__top">
-        <div>
-          <div className="foot__logo"><Logo light /></div>
-          <p className="blurb">Jasa penerjemah &amp; interpreter profesional untuk bisnis — akurat, alami, dan sesuai konteks budaya.</p>
-          <ul className="foot__contact">
-            <li>
-              <span aria-hidden="true">📍</span>
-              <span>JL. Raya Puspiptek, Paradise Serpong City, Kawasan Adventures, Carara J38 No. 38, Tangerang Selatan, Banten — Indonesia</span>
-            </li>
-            <li>
-              <span aria-hidden="true">📞</span>
-              <a href="tel:+622175675048">021 7567 5048</a>
-            </li>
-            <li>
-              <span aria-hidden="true">💬</span>
-              <a href="https://wa.me/628158738349" target="_blank" rel="noopener noreferrer">+62 815-8738-349</a>
-            </li>
-            <li>
-              <span aria-hidden="true">✉️</span>
-              <a href="mailto:nuansa_translator@yahoo.com">nuansa_translator@yahoo.com</a>
-            </li>
-          </ul>
+      {/* top: CTA + social */}
+      <div className="foot__hero">
+        <div className="foot__hero-l">
+          <p>Bergabunglah dengan bisnis yang menembus pasar global melalui terjemahan yang akurat, alami, dan sesuai konteks budaya.</p>
+          <a href="/kontak" className="btn btn--blue">Hubungi Kami</a>
         </div>
-        <div className="foot__col"><h4>Perusahaan</h4><a href="/#about">Tentang</a><a href="/#services">Layanan</a><a href="/#clients">Klien</a><a href="/kontak">Kontak</a></div>
-        <div className="foot__col"><h4>Layanan</h4><a href="/#services">Terjemahan Dokumen</a><a href="/#services">Lokalisasi</a><a href="/#services">Tersumpah</a><a href="/jasa-interpreter">Interpreter</a></div>
-        <div className="foot__col"><h4>Langganan</h4><p className="blurb">Dapatkan tips bahasa &amp; lokalisasi di email Anda.</p>
-          <form className="foot__sub"><input type="email" placeholder="Masukkan email Anda" aria-label="Email" /><button type="button" className="btn btn--lime">Langganan</button></form>
+        <div className="foot__hero-r">
+          <span className="foot__follow">Ikuti kami</span>
+          <div className="foot__social">
+            {SOCIAL.map(({ label, href }) => (
+              <a key={label} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer">
+                {label}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
-      <div className="foot__bar"><span>© 2026 Nuansa Translator. Seluruh hak cipta dilindungi.</span><span>Privasi · Ketentuan</span></div>
+
+      {/* cities */}
+      <div className="foot__cities">
+        <h4>Melayani Klien di Seluruh Indonesia</h4>
+        <div className="foot__cities-list">
+          {CITIES.map((c) => <a key={c} href="#">Penerjemah {c}</a>)}
+        </div>
+      </div>
+
+      {/* wordmark + columns */}
+      <div className="foot__main">
+        <h2 className="foot__wordmark">Nuansa<br />Translator</h2>
+        <div className="foot__cols">
+          <div className="foot__col">
+            <h4>Perusahaan</h4>
+            <a href="/tentang">Tentang</a>
+            <a href="/#services">Layanan</a>
+            <a href="/#clients">Klien</a>
+            <a href="/kontak">Kontak</a>
+          </div>
+          <div className="foot__col">
+            <h4>Kontak</h4>
+            <p>JL. Raya Puspiptek, Paradise Serpong City, Carara J38 No. 38, Tangerang Selatan, Banten</p>
+            <p>Senin–Sabtu, 08.00–17.00 WIB</p>
+            <a href="tel:+622175675048">021 7567 5048</a>
+            <a href="https://wa.me/628158738349" target="_blank" rel="noopener noreferrer">+62 815-8738-349</a>
+          </div>
+        </div>
+      </div>
+
+      <div className="foot__bar">
+        <span>© 2026 Nuansa Translator. Seluruh hak cipta dilindungi.</span>
+        <span>Privasi · Ketentuan</span>
+      </div>
     </div></footer>
   );
 }
