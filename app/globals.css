@@ -1229,3 +1229,11 @@ a { color: inherit; text-decoration: none; }
   .ms__grid { grid-template-columns: 1fr; }
   .ms__side { display: none; }
 }
+
+/* ===== Kontak page — blue theme (scoped) ===== */
+.contactpage { --green: #0b2942; --green-2: #08324f; --green-3: #123f68; --lime: #38a9f5; --lime-2: #2795e6; }
+.contactpage .wrap { max-width: none; }
+.contactpage .btn--lime { color: #fff; }
+.contactpage .btn--lime:hover { background: var(--blue-2); }
+.contactpage .contact__form { background: linear-gradient(180deg, #fff, #f4f8ff); }
+.contactpage .cform input:focus, .contactpage .cform select:focus, .contactpage .cform textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(56,169,245,0.12); }

@@ -69,12 +69,16 @@ export default function KontakPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }} />
       <Nav />
 
+      <main className="contactpage">
       {/* PAGE HEADER */}
-      <header className="phead"><div className="wrap">
-        <span className="pill pill--dark"><MapPin size={14} strokeWidth={2.2} /> Jakarta &amp; Jabodetabek</span>
-        <h1>Hubungi Kami</h1>
-        <p>Ada dokumen untuk diterjemahkan atau butuh interpreter? Tim kami siap membantu dengan penawaran yang jelas dan tanpa kewajiban. Hubungi kami melalui kanal di bawah ini.</p>
-      </div></header>
+      <header className="phd"><div className="wrap"><div className="phd__grid">
+        <div className="phd__eyebrow">Kontak</div>
+        <div className="phd__main">
+          <h1>Hubungi Kami</h1>
+          <p>Ada dokumen untuk diterjemahkan atau butuh interpreter? Tim kami siap membantu dengan penawaran yang jelas dan tanpa kewajiban. Hubungi kami melalui kanal di bawah ini.</p>
+          <div className="phd__cta"><a href="https://wa.me/628158738349" target="_blank" rel="noopener noreferrer" className="btn btn--blue">WhatsApp Kami</a></div>
+        </div>
+      </div></div></header>
 
       {/* CONTACT */}
       <section className="contact"><div className="wrap">
@@ -105,6 +109,7 @@ export default function KontakPage() {
           </div>
         </div>
       </div></section>
+      </main>
 
       <Footer />
       <FloatingWhatsApp />
