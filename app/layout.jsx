@@ -13,11 +13,11 @@ export const metadata = {
   // TODO: set to the real production domain when live.
   metadataBase: new URL("https://nuansatranslator.co.id"),
   title: {
-    default: "Nuansa Translator — Jasa Penerjemah & Interpreter Profesional",
+    default: "Jasa Penerjemah Profesional & Tersumpah Jakarta | Nuansa Translator",
     template: "%s | Nuansa Translator",
   },
   description:
-    "Nuansa Translator menyediakan jasa penerjemah & interpreter profesional dari Bahasa Indonesia ke 16 bahasa — akurat, alami, dan sesuai konteks budaya. Berdiri sejak 2007.",
+    "Jasa penerjemah profesional, tersumpah & interpreter dari Bahasa Indonesia ke 16 bahasa — akurat, alami, dan sesuai konteks budaya. Melayani Jakarta & Jabodetabek sejak 2007. Konsultasi gratis.",
   keywords: [
     "jasa penerjemah",
     "jasa penerjemah Jakarta",
@@ -36,14 +36,14 @@ export const metadata = {
     locale: "id_ID",
     siteName: "Nuansa Translator",
     url: "/",
-    title: "Nuansa Translator — Jasa Penerjemah & Interpreter Profesional",
+    title: "Jasa Penerjemah Profesional & Tersumpah Jakarta | Nuansa Translator",
     description:
-      "Jasa penerjemah & interpreter profesional dari Bahasa Indonesia ke 16 bahasa — akurat, alami, dan sesuai konteks budaya. Berdiri sejak 2007.",
+      "Jasa penerjemah profesional, tersumpah & interpreter dari Bahasa Indonesia ke 16 bahasa — akurat, alami, dan sesuai konteks budaya. Melayani Jakarta & Jabodetabek sejak 2007.",
     images: [{ url: "/hero-globe.jpg", width: 1200, height: 630, alt: "Nuansa Translator" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nuansa Translator — Jasa Penerjemah & Interpreter Profesional",
+    title: "Jasa Penerjemah Profesional & Tersumpah Jakarta | Nuansa Translator",
     description: "Jasa penerjemah & interpreter profesional dari Bahasa Indonesia ke 16 bahasa.",
     images: ["/hero-globe.jpg"],
   },

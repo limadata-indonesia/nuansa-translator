@@ -4,7 +4,8 @@ import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import ServicesAccordion from "@/components/ServicesAccordion";
-import { SERVICES, CLIENTS } from "@/lib/data";
+import { SERVICES, CLIENTS, LANGUAGES } from "@/lib/data";
+import { SITE_URL, ORG_ID, orgNode, AREA_SERVED } from "@/lib/site";
 
 const SVC_IMG = ["/services/dokumen.jpg", "/services/tersumpah.jpg", "/services/website.jpg", "/services/software.jpg", "/services/interpreter.jpg", "/services/elearning.jpg"];
 const SERVICES_IMG = SERVICES.map((s, i) => ({ ...s, img: SVC_IMG[i] }));
@@ -35,9 +36,50 @@ const TESTIMONIALS = [
   { metric: "100%", metricCap: "hasil terbaca alami", tag: "Komunikasi", quote: "Penerjemah profesional yang memahami konteks. Hasilnya terbaca alami, bukan seperti mesin.", name: "Intan Permata", role: "Manajer Komunikasi" },
 ];
 
+const JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "WebSite", "@id": `${SITE_URL}/#website`, url: SITE_URL, name: "Nuansa Translator", inLanguage: "id-ID", publisher: { "@id": ORG_ID } },
+    orgNode(),
+    {
+      "@type": "Service",
+      "@id": `${SITE_URL}/#service`,
+      serviceType: "Jasa Penerjemah",
+      name: "Jasa Penerjemah & Interpreter — Nuansa Translator",
+      url: SITE_URL,
+      description:
+        "Jasa penerjemah profesional, tersumpah, dan interpreter di Jakarta & Jabodetabek — terjemahan dokumen, tersumpah, situs web, lokalisasi software, e-learning, dan interpreter dalam 16 bahasa sejak 2007.",
+      provider: { "@id": ORG_ID },
+      areaServed: AREA_SERVED,
+      availableLanguage: LANGUAGES.map((l) => ({ "@type": "Language", name: l })),
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Layanan Bahasa",
+        itemListElement: SERVICES.map((s) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: s.title, description: s.desc } })),
+      },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${SITE_URL}/#faq`,
+      mainEntity: FAQS.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/#webpage`,
+      url: SITE_URL,
+      name: "Jasa Penerjemah Profesional & Tersumpah Jakarta | Nuansa Translator",
+      inLanguage: "id-ID",
+      isPartOf: { "@id": `${SITE_URL}/#website` },
+      about: { "@id": ORG_ID },
+      primaryImageOfPage: `${SITE_URL}/hero-globe.jpg`,
+    },
+  ],
+};
+
 export default function Home() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }} />
       <Nav />
 
       <main className="home">
