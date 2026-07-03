@@ -27,6 +27,8 @@ const OFFER_IMG = {
   "lokalisasi-software": "/services/software.jpg",
   "jasa-interpreter": "/services/interpreter.jpg",
   "terjemahan-e-learning": "/services/elearning.jpg",
+  "juru-bahasa-isyarat": "/services/isyarat.jpg",
+  "sewa-alat-interpreter": "/services/alat.jpg",
 };
 
 export default function ServiceLanding({ data }) {

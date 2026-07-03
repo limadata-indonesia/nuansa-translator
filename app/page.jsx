@@ -7,7 +7,7 @@ import ServicesAccordion from "@/components/ServicesAccordion";
 import { SERVICES, CLIENTS, LANGUAGES } from "@/lib/data";
 import { SITE_URL, ORG_ID, orgNode, AREA_SERVED } from "@/lib/site";
 
-const SVC_IMG = ["/services/dokumen.jpg", "/services/tersumpah.jpg", "/services/website.jpg", "/services/software.jpg", "/services/interpreter.jpg", "/services/elearning.jpg"];
+const SVC_IMG = ["/services/dokumen.jpg", "/services/tersumpah.jpg", "/services/website.jpg", "/services/software.jpg", "/services/interpreter.jpg", "/services/elearning.jpg", "/services/isyarat.jpg", "/services/alat.jpg"];
 const SERVICES_IMG = SERVICES.map((s, i) => ({ ...s, img: SVC_IMG[i] }));
 
 const HERO_CARDS = [
