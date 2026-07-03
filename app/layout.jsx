@@ -1,5 +1,10 @@
 import localFont from "next/font/local";
+import Script from "next/script";
 import "./globals.css";
+
+// Google Analytics 4 — loaded only in production so local dev doesn't pollute analytics.
+// Override the ID with NEXT_PUBLIC_GA_ID if needed.
+const GA_ID = process.env.NODE_ENV === "production" ? (process.env.NEXT_PUBLIC_GA_ID || "G-RXDG6TWX16") : null;
 
 // WF Visual Sans — variable font (wght 100–900), self-hosted. Powers the whole site.
 const visual = localFont({
@@ -52,7 +57,24 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="id" className={visual.variable}>
-      <body>{children}</body>
+      <body>
+        {children}
+        {GA_ID ? (
+          <>
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
+            <Script
+              id="ga4-init"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GA_ID}');`,
+              }}
+            />
+          </>
+        ) : null}
+      </body>
     </html>
   );
 }
