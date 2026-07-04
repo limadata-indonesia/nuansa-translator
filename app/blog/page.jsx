@@ -42,6 +42,15 @@ const CATS = [
   ["Aksesibilitas", "Aksesibilitas"],
   ["FAQ · Juru Bahasa Isyarat", "FAQ"],
   ["Panduan · Terjemahan Tersumpah", "Terjemahan Tersumpah"],
+  ["Panduan · Alat Interpreter", "Alat Interpreter"],
+  ["Layanan · Alat Interpreter", "Sewa Alat Interpreter"],
+  ["Perangkat · Alat Interpreter", "Perangkat Interpreter"],
+  ["Jenis Acara · Alat Interpreter", "Jenis Acara"],
+  ["Industri · Alat Interpreter", "Industri Interpreter"],
+  ["Biaya · Alat Interpreter", "Biaya Sewa"],
+  ["Teknologi · Alat Interpreter", "Teknologi Interpreter"],
+  ["Lokasi · Alat Interpreter", "Lokasi Sewa"],
+  ["FAQ · Alat Interpreter", "FAQ Alat Interpreter"],
 ];
 const SHORT = Object.fromEntries(CATS.map(([k, l]) => [k, l]));
 const shortLabel = (c) => SHORT[c] || (c || "").split("·")[0].trim();
@@ -60,7 +69,7 @@ function Card({ p, cls = "" }) {
 
 export default function BlogIndex() {
   const posts = allPosts();
-  const featuredSlugs = ["apa-itu-juru-bahasa-isyarat", "bisindo-vs-sibi-perbedaan", "berapa-tarif-juru-bahasa-isyarat"];
+  const featuredSlugs = ["apa-itu-juru-bahasa-isyarat", "apa-itu-alat-interpreter", "berapa-tarif-juru-bahasa-isyarat"];
   const featured = featuredSlugs.map(getPost).filter(Boolean);
   const featuredSet = new Set(featuredSlugs);
   const rest = posts.filter((p) => !featuredSet.has(p.slug));
