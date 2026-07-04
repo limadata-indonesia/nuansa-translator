@@ -8,6 +8,7 @@ const LINKS = [
   { href: "/", label: "Beranda" },
   { href: "/tentang", label: "Tentang" },
   { href: "/#services", label: "Layanan", mega: true },
+  { href: "/blog", label: "Blog" },
   { href: "/#estimate", label: "Estimasi" },
   { href: "/kontak", label: "Kontak" },
 ];
@@ -118,6 +119,7 @@ export default function Nav() {
             ))}
           </div>
         </div>
+        <a href="/blog" onClick={() => setOpen(false)}>Blog</a>
         <a href="/#estimate" onClick={() => setOpen(false)}>Estimasi</a>
         <a href="/kontak" onClick={() => setOpen(false)}>Kontak</a>
         <a href="/kontak" className="btn btn--blue nav__drawer-cta" onClick={() => setOpen(false)}>
