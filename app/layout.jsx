@@ -16,7 +16,7 @@ const visual = localFont({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://nuansatranslator.co.id"),
+  metadataBase: new URL("https://nuansatranslator.com"),
   title: {
     default: "Jasa Penerjemah Profesional Jakarta | Nuansa Translator",
     template: "%s | Nuansa Translator",
