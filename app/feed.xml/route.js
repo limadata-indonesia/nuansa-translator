@@ -1,7 +1,8 @@
 import { SITE_URL } from "@/lib/site";
-import { allPosts } from "@/content/blog/registry";
+import { getAllPosts, WP_REVALIDATE } from "@/lib/wp";
 
 export const dynamic = "force-static";
+export const revalidate = WP_REVALIDATE;
 
 const esc = (s = "") =>
   String(s)
@@ -12,8 +13,8 @@ const esc = (s = "") =>
 
 const rfc822 = (iso) => new Date(`${iso}T00:00:00Z`).toUTCString();
 
-export function GET() {
-  const posts = allPosts().slice(0, 40);
+export async function GET() {
+  const posts = (await getAllPosts()).slice(0, 40);
   const latest = posts[0]?.published || "2026-01-01";
 
   const items = posts

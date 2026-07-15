@@ -1,11 +1,11 @@
-import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { SITE_URL, ORG_ID, orgNode, waLink } from "@/lib/site";
-import { Share2, Link2, ArrowUpRight, Calendar, Clock } from "lucide-react";
+import { Share2, Link2, Calendar, Clock } from "lucide-react";
 
-/* ---- inline markdown: **bold**, *em*, [text](href) ---- */
+/* ---- inline markdown: **bold**, *em*, [text](href) ----
+   Still used for meta fields (lead, FAQ answers) that travel as raw text. */
 function renderInline(text = "") {
   const parts = [];
   const re = /(\*\*([^*]+)\*\*)|(\[([^\]]+)\]\(([^)]+)\))|(\*([^*]+)\*)/g;
@@ -21,66 +21,6 @@ function renderInline(text = "") {
   return parts;
 }
 
-function slugifyHeading(text = "") {
-  return text
-    .replace(/\*\*/g, "")
-    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
-    .toLowerCase()
-    .replace(/[^a-z0-9\s-]/g, "")
-    .trim()
-    .replace(/\s+/g, "-")
-    .slice(0, 60);
-}
-
-function Block({ block, wa }) {
-  switch (block.t) {
-    case "h2":
-      return <h2 id={slugifyHeading(block.text)}>{renderInline(block.text)}</h2>;
-    case "p":
-      return <p>{renderInline(block.text)}</p>;
-    case "ul":
-      return <ul>{block.items.map((it, i) => <li key={i}>{renderInline(it)}</li>)}</ul>;
-    case "ol":
-      return <ol>{block.items.map((it, i) => <li key={i}>{renderInline(it)}</li>)}</ol>;
-    case "quote":
-      return <blockquote className="bcontent__quote">{renderInline(block.text)}</blockquote>;
-    case "figure":
-      return (
-        <figure className="bcontent__figure">
-          <Image src={block.src} alt={block.alt || ""} width={1200} height={700} sizes="(max-width: 900px) 100vw, 720px" />
-          {block.caption ? <figcaption>{renderInline(block.caption)}</figcaption> : null}
-        </figure>
-      );
-    case "table":
-      return (
-        <div className="btable-wrap">
-          <table className="btable">
-            <thead><tr>{block.head.map((c, i) => <th key={i}>{renderInline(c)}</th>)}</tr></thead>
-            <tbody>
-              {block.rows.map((row, ri) => (
-                <tr key={ri}>{row.map((c, ci) => <td key={ci}>{renderInline(c)}</td>)}</tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      );
-    case "cta":
-      return (
-        <aside className="bcta">
-          <div>
-            <h3>{block.title}</h3>
-            <p>{renderInline(block.text)}</p>
-          </div>
-          <a href={wa} target="_blank" rel="noopener noreferrer" className="btn btn--blue">
-            Konsultasi Gratis <ArrowUpRight size={16} />
-          </a>
-        </aside>
-      );
-    default:
-      return null;
-  }
-}
-
 function formatDate(iso) {
   const months = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
   const [y, m, d] = iso.split("-").map(Number);
@@ -92,7 +32,7 @@ export default function BlogArticle({ post }) {
   const wa = waLink(post.cta?.waText || `Halo Nuansa, saya ingin berkonsultasi tentang ${post.h1}.`);
 
   const toc = [
-    ...post.body.filter((b) => b.t === "h2").map((b) => ({ id: slugifyHeading(b.text), label: b.text })),
+    ...post.toc,
     ...(post.faqs?.length ? [{ id: "faq", label: "Pertanyaan umum (FAQ)" }] : []),
   ];
 
@@ -178,7 +118,7 @@ export default function BlogArticle({ post }) {
         <article className="bcontent">
           {post.lead ? <p className="bcontent__lead">{renderInline(post.lead)}</p> : null}
 
-          {post.body.map((block, i) => <Block key={i} block={block} wa={wa} />)}
+          <div dangerouslySetInnerHTML={{ __html: post.bodyHtml }} />
 
           {post.faqs?.length ? (
             <>

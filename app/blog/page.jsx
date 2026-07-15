@@ -2,9 +2,11 @@ import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
-import { allPosts, getPost } from "@/content/blog/registry";
+import { getAllPosts, WP_REVALIDATE } from "@/lib/wp";
 import { waLink } from "@/lib/site";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
+
+export const revalidate = WP_REVALIDATE;
 
 export const metadata = {
   title: "Blog",
@@ -18,19 +20,6 @@ function fmt(iso) {
   const [y, m, d] = iso.split("-").map(Number);
   return `${d} ${MONTHS[m - 1]} ${y}`;
 }
-function readTime(p) {
-  let t = p.lead || "";
-  (p.body || []).forEach((b) => {
-    if (b.text) t += " " + b.text;
-    if (b.items) t += " " + b.items.join(" ");
-    if (b.rows) t += " " + b.rows.flat().join(" ");
-    if (b.title) t += " " + b.title;
-  });
-  (p.faqs || []).forEach((f) => (t += " " + f.q + " " + f.a));
-  const w = t.trim().split(/\s+/).filter(Boolean).length;
-  return Math.max(3, Math.round(w / 200));
-}
-
 const CATS = [
   ["Panduan · Juru Bahasa Isyarat", "Panduan"],
   ["Layanan · Juru Bahasa Isyarat", "Layanan"],
@@ -62,22 +51,31 @@ function Card({ p, cls = "" }) {
       <span className="acard__cat">{shortLabel(p.category)}</span>
       <h3 className="acard__title">{p.h1}</h3>
       {p.subtitle ? <p className="acard__desc">{p.subtitle}</p> : null}
-      <span className="acard__meta">{readTime(p)} menit baca · {fmt(p.published)}</span>
+      <span className="acard__meta">{p.readMinutes} menit baca · {fmt(p.published)}</span>
     </Link>
   );
 }
 
-export default function BlogIndex() {
-  const posts = allPosts();
+export default async function BlogIndex() {
+  const posts = await getAllPosts();
   const featuredSlugs = ["apa-itu-juru-bahasa-isyarat", "apa-itu-alat-interpreter", "berapa-tarif-juru-bahasa-isyarat"];
-  const featured = featuredSlugs.map(getPost).filter(Boolean);
+  const featured = featuredSlugs.map((s) => posts.find((p) => p.slug === s)).filter(Boolean);
   const featuredSet = new Set(featuredSlugs);
   const rest = posts.filter((p) => !featuredSet.has(p.slug));
-  const groups = CATS.map(([key, label]) => ({
-    label,
-    id: catId(label),
-    posts: rest.filter((p) => p.category === key),
-  })).filter((g) => g.posts.length);
+  const known = new Set(CATS.map(([k]) => k));
+  // Categories created later in WordPress get their own section at the end,
+  // so new posts never silently disappear from the index.
+  const extra = [...new Set(rest.map((p) => p.category))].filter((c) => c && !known.has(c));
+  const groups = [
+    ...CATS.map(([key, label]) => ({ label, key })),
+    ...extra.map((key) => ({ label: shortLabel(key), key })),
+  ]
+    .map(({ key, label }) => ({
+      label,
+      id: catId(label),
+      posts: rest.filter((p) => p.category === key),
+    }))
+    .filter((g) => g.posts.length);
 
   const [lead, ...side] = featured;
   const wa = waLink("Halo Nuansa, saya ingin berkonsultasi mengenai layanan penerjemahan.");

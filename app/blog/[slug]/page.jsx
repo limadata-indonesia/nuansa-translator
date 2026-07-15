@@ -1,13 +1,17 @@
 import { notFound } from "next/navigation";
 import BlogArticle from "@/components/BlogArticle";
-import { getPost, allSlugs } from "@/content/blog/registry";
+import { getAllPosts, getPostBySlug, WP_REVALIDATE } from "@/lib/wp";
 
-export function generateStaticParams() {
-  return allSlugs().map((slug) => ({ slug }));
+export const revalidate = WP_REVALIDATE;
+// Posts published in WordPress after the last build still get rendered.
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  return (await getAllPosts()).map((p) => ({ slug: p.slug }));
 }
 
-export function generateMetadata({ params }) {
-  const post = getPost(params.slug);
+export async function generateMetadata({ params }) {
+  const post = await getPostBySlug(params.slug);
   if (!post) return {};
   return {
     title: post.seoTitle || post.h1,
@@ -26,8 +30,8 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default function Page({ params }) {
-  const post = getPost(params.slug);
+export default async function Page({ params }) {
+  const post = await getPostBySlug(params.slug);
   if (!post) notFound();
   return <BlogArticle post={post} />;
 }
